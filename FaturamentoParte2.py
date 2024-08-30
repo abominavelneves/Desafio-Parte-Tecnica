@@ -13,3 +13,4 @@ def MediaFaturamento(array):
     for i in array:
         soma+=i
     return soma/(len(array))
+print(MediaFaturamento(data))

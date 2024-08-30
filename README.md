@@ -14,7 +14,9 @@ while k<indice:
 print(soma)
 ```
 Esse algoritmo simples altera o valor da Soma da seguinte forma [1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66, 78, 91], logo o valor final da variável soma é 91.
+
 2. Nessa questão foi pedido um código capaz de criar a sequência de fibonacci e, também, capaz de descobrir se um determinado númnero pertence a sequência.
+
 3. Na Primeira Parte desse desafio dessa questão foi pedido para percorrer um vetor que possuia todos os valores da empresa e encontrar qual foi o menor e o maior valor. Para isso foi desenvolvida uma função para olhar cada item e retornar qual era o maior ou menor. Outro ponto interessante, o desafio exigiu que trablhasse com um arquivo xml ou json onde os dados estão armazenados.
 ```python
 import json 
@@ -53,5 +55,18 @@ def MediaFaturamento(array):
         soma+=i
     return soma/(len(array))
 ```
+
 4. 
-5. A questão exigia um programa capaz de inverter uma String sem utlizar funções prontas como reverse. Minha primeira ideia foi 
+
+5. A questão exigia um programa capaz de inverter uma String sem utlizar funções prontas como reverse. Minha primeira ideia foi percorrer a palavra pelo último índice até chegar ao primeiro.
+```python
+def inverteString(palavra):
+    tamanho=len(palavra)
+    palavra_invertida=""
+    aux=0
+    while aux<=tamanho-1:
+        palavra_invertida+=palavra[tamanho-1]
+        tamanho-=1
+    return palavra_invertida
+print(inverteString("Candy Lu"))
+```
