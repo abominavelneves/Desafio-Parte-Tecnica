@@ -8,9 +8,15 @@ def ValoresNulos(array):
             novo_array.append(i)
     return novo_array
 data=ValoresNulos(data["faturamento"])
-def MediaFaturamento(array):
+def AcimaMediaFaturamento(array):
     soma=0
     for i in array:
         soma+=i
-    return soma/(len(array))
-print(MediaFaturamento(data))
+    media=soma/(len(array))
+    print(media)
+    quantidade=0
+    for i in array:
+        if i>media:
+            quantidade+=1
+    return quantidade
+
