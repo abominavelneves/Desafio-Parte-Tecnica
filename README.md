@@ -48,29 +48,40 @@ def DiaMaiorFaturamento(data):
             dia_maior=data[i]  
     return dia_maior
 ```
-Na Segunda Parte foi pedido para calcular a média dos valores disponíveis desconsiderando valores nulos no vetor. Considerando que todos os valores são números reais, basta filtrar os valores diferentes de 0, para isso eu criei uma função que cria um novo array a partir do array dado removendo os valores nulos.
 ```python
-import json
-with open("dados.json","r") as f:
+import json 
+with open("dados1.json","r") as f:
     data=json.load(f)
-def ValoresNulos(array):
-    novo_array=[]
-    for i in array:
-        if i!=0:
-            novo_array.append(i)
-    return novo_array
-data=ValoresNulos(data["faturamento"])
-def AcimaMediaFaturamento(array):
+def DiaMenorFaturamento(data):
+    tamanho=len(data)
+    menor_faturamento=data[0]['valor']
+    dia_menor={}
+    for i in range(tamanho):
+        if data[i]['valor']<menor_faturamento:
+            menor_faturamento=data[i]['valor'] 
+            dia_menor=data[i]  
+    return dia_menor
+print(DiaMenorFaturamento(data))
+```
+Na Segunda Parte foi pedido para achar quantos dias o faturamento foi acima da média desconsiderando faturamentos nulos. 
+```python
+import json 
+with open("dados1.json","r") as f:
+    data=json.load(f)
+def DiasAcimaDaMedia(data):
     soma=0
-    for i in array:
-        soma+=i
-    media=soma/(len(array))
-    print(media)
-    quantidade=0
-    for i in array:
-        if i>media:
-            quantidade+=1
-    return quantidade
+    tamanho=len(data)
+    dias_acima=0
+    dias_nao_nulos=0
+    for j in range(tamanho):
+        if data[j]['valor']!=0.0:
+            dias_nao_nulos+=1
+            soma+=data[j]['valor']
+    media=soma/dias_nao_nulos
+    for i in range(tamanho):
+        if data[i]['valor']>media:
+            dias_acima+=1
+    return dias_acima
 ```
 
 4. Nessa questão foi fornecido alguns dados sobre uma distribuidora que possui franquias no País, o desafio foi criar uma função capaz de calcular a contribuição percentual de cada estado.
