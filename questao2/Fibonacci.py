@@ -9,5 +9,4 @@ def PertenceFibo(numero):
         elif next>numero:
             print('nao pertence')
         array.append(next)
-
-PertenceFibo(33)
+PertenceFibo(34)

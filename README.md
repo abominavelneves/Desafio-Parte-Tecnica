@@ -32,27 +32,23 @@ def PertenceFibo(numero):
 PertenceFibo(33)
 ```
 
-3. Na Primeira Parte desse desafio dessa questão foi pedido para percorrer um vetor que possuia todos os valores da empresa e encontrar qual foi o menor e o maior valor. Para isso foi desenvolvida uma função para olhar cada item e retornar qual era o maior ou menor. Outro ponto interessante, o desafio exigiu que trablhasse com um arquivo xml ou json onde os dados estão armazenados.
+3. Na Primeira Parte desse desafio dessa questão foi pedido para percorrer um arquivo .json que possuia o faturamento da empresa ao longo de um mês e encontrar qual foi o menor e o maior faturamento do mês. Frente a isso foram desenvolvidas duas funções: uma para encontrar o dia e o valor do maior faturamento e outra para encontrar o dia e o valor do menor faturamento.
 ```python
 import json 
-with open("dados.json","r") as f:
+import json 
+with open("dados1.json","r") as f:
     data=json.load(f)
-def MenorFaturamento(data):
-    menor_faturamento=data["faturamento"][0]
-    for i in data["faturamento"]:
-        if i<menor_faturamento:
-            menor_faturamento=i
-    return menor_faturamento
-print(MenorFaturamento(data))
-def MaiorFaturamento(data):
-    maior_faturamento=data["faturamento"][0]
-    for i in data["faturamento"]:
-        if i>maior_faturamento:
-            maior_faturamento=i
-    return maior_faturamento
-print(MaiorFaturamento(data))
+def DiaMaiorFaturamento(data):
+    tamanho=len(data)
+    maior_faturamento=data[0]['valor']
+    dia_maior={}
+    for i in range(tamanho):
+        if data[i]['valor']>maior_faturamento:
+            maior_faturamento=data[i]['valor'] 
+            dia_maior=data[i]  
+    return dia_maior
 ```
-Na Segunda Parte foi pedido para calcular a media dos valores disponíveis desconsiderando valores nulos no vetor. Considerando que todos os valores são números reais, basta filtrar os valores diferentes de 0, para isso eu criei uma função que cria um novo array a partir do array dado removendo os valores nulos.
+Na Segunda Parte foi pedido para calcular a média dos valores disponíveis desconsiderando valores nulos no vetor. Considerando que todos os valores são números reais, basta filtrar os valores diferentes de 0, para isso eu criei uma função que cria um novo array a partir do array dado removendo os valores nulos.
 ```python
 import json
 with open("dados.json","r") as f:
